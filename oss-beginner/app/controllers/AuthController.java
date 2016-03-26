@@ -68,4 +68,4 @@ public class AuthController extends Controller  {
 	private void cacheUser(AppUser user) {
 		Cache.set("user", user);
 	}
-}
+
