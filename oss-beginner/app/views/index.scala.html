@@ -1,0 +1,11 @@
+@(message: String)
+
+@main("タベグル") {
+
+	<h1>タベグル</h1>
+
+	<a href="@routes.GroupController.index">Create Group</a>
+	<a href="@routes.GroupController.grouplist">Group List</a>
+	<a href="@routes.ShopController.index">Search Shop</a>
+	<a href="@routes.AuthController.logout">Logout</a>
+}

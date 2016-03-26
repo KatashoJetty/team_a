@@ -1,0 +1,18 @@
+@(form1:Form[AppGroup])
+
+@main("Create Group") {
+
+	<h1>Create Group</h1>
+	
+	   @if(flash.containsKey("groupinfo")) {
+  		@flash.get("groupinfo")
+  		} else {
+  		
+		}
+	
+	@helper.form(action = routes.GroupController.savegroup()) {
+        @helper.inputText(form1("groupname"))
+        @helper.textarea(form1("comment"))
+        <input type ="submit" value ="Create">
+    }
+}

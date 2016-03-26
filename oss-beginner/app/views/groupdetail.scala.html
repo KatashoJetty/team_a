@@ -1,0 +1,36 @@
+@(group: AppGroup)
+
+@main("Group Detail") {
+
+<h1>Group Detail</h1>
+
+   @if(flash.containsKey("joined")) {
+  		@flash.get("joined")
+  		} else {
+  		
+		}
+
+	<table class="table">
+		<tbody>
+	  		<tr>
+	    	  	<th>Group Name:</th>
+	    		<td>@group.groupname</th>
+	    	</tr>
+	    	<tr>
+	    	  	<th>Comment:</th>
+	    		<td>@group.comment</th>
+	    	</tr>
+	    </tbody>
+	</table>
+
+	<br></br>
+	@helper.form(action = routes.GroupController.join()) {
+			<input type="hidden" name="username" value="abcd">
+			<input type="hidden" name="groupid" value="@group.groupid">
+      		<input type="submit" class="btn btn-danger btn-sm" value="Join">
+    		}
+	
+	@helper.form(action = routes.GroupController.grouplist()) {
+      		<input type="submit" class="btn btn-danger btn-sm" value="Back">
+      		}
+}

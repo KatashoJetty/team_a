@@ -1,0 +1,37 @@
+@(keyword1: String, groups: List[models.AppGroup])
+
+@main("Search Group") {
+
+	<h1>Search Group</h1>
+	
+	Search
+	@helper.form(action = routes.SearchGroupController.index()) {
+		<input type="text" name="gname" value="@keyword1">
+		<input type="submit" value="Go">
+   }
+      
+   @if(groups.length > 0) {
+	<table class="table">
+		<thead>
+	  		<tr>
+	    	  	<th></th>
+	    		<th></th>
+	    		<th></th>
+	    	</tr>	
+  		</thead>
+	  	<tbody>
+  		@for(g <- groups) {
+    	<tr>
+      		<td>@g.groupname</td>
+      		<td>
+      		@helper.form(action = routes.SearchGroupController.index()) {
+      	     	<input type="submit" class="btn btn-danger btn-sm" value="Detail">
+      	    }
+    		</td>
+    	</tr>
+  		}
+  		</tbody>
+	</table>
+	}
+	
+}

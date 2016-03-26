@@ -1,0 +1,16 @@
+@(group2:AppGroup)
+
+@main("My Group Detail") {
+
+<h1>My Group Detail</h1>
+
+	   @if(flash.containsKey("groupinfo")) {
+  		@flash.get("groupinfo")
+  		} else {
+  		
+		}
+
+		name:@group2.groupname
+    	comment:@group2.comment
+		
+}

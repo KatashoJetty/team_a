@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.ApplicationController.index()
+
+GET     /login                      controllers.AuthController.index()
+POST    /login                      controllers.AuthController.login()
+GET     /register                   controllers.AuthController.register()
+POST    /register                   controllers.AuthController.create()
+GET     /logout                     controllers.AuthController.logout()
+
+GET     /shop                       controllers.ShopController.index()			
+POST    /shopname	                controllers.ShopController.saveshop()
+
+GET     /creategroup                controllers.GroupController.index()
+POST    /creategroup                controllers.GroupController.savegroup()
+GET     /grouplist                  controllers.GroupController.grouplist()
+POST    /groupdetail                controllers.GroupController.showdetail()
+POST    /joingroup                  controllers.GroupController.join()
+
+	
+GET     /searchgroup                controllers.SearchGroupController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

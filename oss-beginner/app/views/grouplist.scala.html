@@ -1,0 +1,30 @@
+@(groups: List[models.AppGroup])
+
+@main("Group List") {
+
+	<h1>Group List</h1>
+      
+   @if(groups.length > 0) {
+	<table class="table">
+		<thead>
+	  		<tr>
+	    	  	<th>Group Name</th>
+	    		<th></th>
+	    	</tr>	
+  		</thead>
+	  	<tbody>
+  		@for(g <- groups) {
+    	<tr>
+      		<td>@g.groupname</td>
+      		<td>
+      		@helper.form(action = routes.GroupController.showdetail()) {
+      			<input type="hidden" name="groupid" value="@g.groupid">
+      			<input type="submit" class="btn btn-danger btn-sm" value="Detail">
+      		}
+    		</td>
+    	</tr>
+  		}
+  		</tbody>
+	</table>
+	}
+}
